@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.useGlobalPipes(new ValidationPipe());
-  
+
   await app.listen(3333);
   
   
@@ -19,10 +19,18 @@ async function bootstrap() {
       'http://todo-backend-nest.onrender.com/',
       'https://localhost:3333',
       'http://localhost:3333',
-      'https://50.17.81.170:3333',
-      'http://50.17.81.170:3000',
-      'https://50.17.81.170:8080',
-      'http://50.17.81.170:8080'
+      'https://44.226.145.213',
+      'http://44.226.145.213',
+      'https://54.187.200.255',
+      'http://54.187.200.255',
+      'https://34.213.214.55',
+      'http://34.213.214.55',
+      'https://35.164.95.156',
+      'http://35.164.95.156',
+      'https://44.230.95.183',
+      'http://44.230.95.183',
+      'https://44.229.200.200',
+      'http://44.229.200.200'
     ],
 
     
