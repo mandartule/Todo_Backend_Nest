@@ -1,9 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.useGlobalPipes(new ValidationPipe());
+  
   await app.listen(3333);
   
   
@@ -28,6 +32,9 @@ async function bootstrap() {
 
   //enabled cors  for the application
   app.enableCors(corsOptions);
+
+  //enabled validation pipe for the application globally
+  
 
   console.log(`Application is running on: ${await app.getUrl()}`);
 }

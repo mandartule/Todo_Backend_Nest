@@ -19,7 +19,7 @@ export class AuthService {
 
         //taking data
         const { name, email, password } = signUpDto
-
+        console.log(signUpDto)
         const salt = await bcrypt.genSalt(10)
 
         const hashedPassword = await bcrypt.hash(password, salt)
@@ -37,19 +37,25 @@ export class AuthService {
     }
 
     async login(loginDto: LoginDto): Promise<{token: string}>{
+
         const {email,password} = loginDto
 
         const user = await this.userModel.findOne({email})
 
-        if(!user){
-            throw new UnauthorizedException('Invalid email or password')
-        }
 
+        //checking if user exists
+        if(!user){
+            throw new UnauthorizedException('😌 🙏 Please SignUp first or check email 📧')
+        }
+        
+         //checking if password matched Using bcrypt compare
         const isPasswordMatched = await bcrypt.compare(password,user.password)
 
+       
         if(!isPasswordMatched){
-            throw new UnauthorizedException('Invalid email or password')
+            throw new UnauthorizedException('🔑 Password is incorrect ☹️')
         }
+        
         
         const token = this.jwtService.sign({ id: user._id })
 

@@ -12,6 +12,6 @@ export class SignUpDto {
 
     @IsNotEmpty()
     @IsString()
-    @MinLength(6)
-    readonly password: string
+    @MinLength(6, { message: '🤐 Password must be at least 6 characters long' })
+    readonly password: string;
 }

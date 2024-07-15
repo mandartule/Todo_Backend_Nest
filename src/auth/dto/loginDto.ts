@@ -6,8 +6,7 @@ export class LoginDto {
     @IsEmail({},{message: '🤔 Enter a valid email'})
     readonly email: string
 
-    @IsNotEmpty()
+    @IsNotEmpty({message: '🤐 Password is required'})
     @IsString()
-    @MinLength(6)
     readonly password: string
 }
