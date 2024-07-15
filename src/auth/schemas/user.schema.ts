@@ -4,7 +4,7 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 @Schema({
     timestamps: true,
 })
-export class user{
+export class User{
 
     @Prop()
     name: string;
@@ -18,4 +18,4 @@ export class user{
 }
 
 //schema factory to create schema form class
-export const UserSchema = SchemaFactory.createForClass(user);
+export const UserSchema = SchemaFactory.createForClass(User);
