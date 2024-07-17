@@ -16,7 +16,7 @@ export class TaskService {
     // createTask method to create a new task
     async create(createTaskDto: TaskDto): Promise<Task> {
         const newTask = new this.taskModel(createTaskDto);
-        console.log(newTask);
+        //console.log(newTask);
         return newTask.save();
     }
 
@@ -32,13 +32,13 @@ export class TaskService {
     async updateTaskById(taskId: string): Promise<any> {
         const task = await this.taskModel.findById(taskId);
         const updatedTask = await this.taskModel.findByIdAndUpdate(taskId, { $set: { completed: !task.completed } }, { new: true });
-        console.log(updatedTask);
+        //console.log(updatedTask);
         return updatedTask;
     }
 
     async deleteTaskById(taskId: string): Promise<any> {
         const deletedTask = await this.taskModel.findByIdAndDelete(taskId);
-        console.log(deletedTask);
+        //console.log(deletedTask);
         return deletedTask;
     }
     

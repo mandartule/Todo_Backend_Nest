@@ -19,7 +19,7 @@ export class AuthService {
 
         //taking data
         const { name, email, password } = signUpDto
-        console.log(signUpDto)
+        //console.log(signUpDto)
         const salt = await bcrypt.genSalt(10)
 
         const hashedPassword = await bcrypt.hash(password, salt)
