@@ -1,4 +1,4 @@
-import {  Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -16,12 +16,12 @@ import { TaskModule } from './task/task.module';
       isGlobal: true,
     }),
 
-MongooseModule.forRoot(process.env.DB_CONNECT),
+    MongooseModule.forRoot(process.env.DB_CONNECT),
 
-AuthModule, TaskModule, ],
+    AuthModule, TaskModule],
 
   controllers: [AppController],
   providers: [AppService],
 })
 
-export class AppModule {}
+export class AppModule { }

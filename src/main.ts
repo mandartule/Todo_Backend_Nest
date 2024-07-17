@@ -8,17 +8,19 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
 
-  await app.listen(3333);
+ 
   
   
   const corsOptions: CorsOptions = {
     origin: [
-      'https://www.todo-backend-nest.onrender.com',
+      'https://to-do-frontend-5zw15yjs2-mandartules-projects.vercel.app',
       'http://todo-backend-nest.onrender.com/',
       'https://todo-backend-nest.onrender.com/',
       'http://todo-backend-nest.onrender.com/',
-      'https://localhost:3333',
-      'http://localhost:3333',
+      'https://localhost:8080',
+      'http://localhost:8080',
+      'https://localhost:8081',
+      'http://localhost:8081',
       'https://44.226.145.213',
       'http://44.226.145.213',
       'https://54.187.200.255',
@@ -37,10 +39,11 @@ async function bootstrap() {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   };
-
   //enabled cors  for the application
   app.enableCors(corsOptions);
 
+  
+  await app.listen(3333);
   //enabled validation pipe for the application globally
   
 

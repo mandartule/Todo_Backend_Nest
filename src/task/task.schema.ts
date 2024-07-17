@@ -1,22 +1,27 @@
-// import * as mongoose from 'mongoose';
-// //import { User } from '../auth/user.schema';
+import { Schema, Prop, SchemaFactory } from "@nestjs/mongoose";
+import { Document } from "mongoose";
+import * as mongoose from 'mongoose';
+import { User } from "../auth/schemas/user.schema";
 
-// export const todoSchema = new mongoose.Schema({
-//   user: {
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: 'User'
-//   },
-//   name: {
-//     type: String,
-//     required: true,
-//   },
-//   status: {
-//     type: Boolean,
-//     required: true,
-//   },
-// });
+@Schema({
+  timestamps: true
+})
+export class Task extends Document {
 
-// export interface todo {
+  //making a reference to the User schema
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: () => User }) 
+  user: mongoose.Types.ObjectId;
+
+  @Prop({ required: true })
+  name: string;
+
+  @Prop({ default: false })
+  completed: boolean;
+}
+
+export const TaskSchema = SchemaFactory.createForClass(Task);
+
+// export interface Task {
 //   id: string;
 //   user: User;
 //   name: string;
