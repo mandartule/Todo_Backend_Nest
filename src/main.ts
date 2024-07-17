@@ -14,9 +14,9 @@ async function bootstrap() {
   const corsOptions: CorsOptions = {
     origin: [
       'https://to-do-frontend-5zw15yjs2-mandartules-projects.vercel.app',
-      'http://todo-backend-nest.onrender.com/',
-      'https://todo-backend-nest.onrender.com/',
-      'http://todo-backend-nest.onrender.com/',
+      'http://todo-backend-nest.onrender.com',
+      'https://todo-backend-nest.onrender.com',
+      'http://todo-backend-nest.onrender.com',
       'https://localhost:8080',
       'http://localhost:8080',
       'https://localhost:8081',
